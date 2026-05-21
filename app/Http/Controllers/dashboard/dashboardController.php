@@ -31,7 +31,7 @@ class dashboardController extends Controller
         $post->title = $valid['title'];
         $post->description = $valid['description'];
 
-        $post->image_path = $request->file('image')->store('uploads', 'public');
+        $post->image = $request->file('image')->store('uploads', 'public');
 
         $post->save();
 
