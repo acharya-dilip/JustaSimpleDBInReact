@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\member;
+use App\Models\Member;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class adminController extends Controller
     public function index()
     {
 
-        $members = member::latest()->get();
+        $members = Member::latest()->get();
 
         //        return view('admin.app',compact('members'));
 
@@ -23,7 +23,7 @@ class adminController extends Controller
 
         $id = $request->id;
 
-        $member = member::find($id);
+        $member = Member::find($id);
         $member->name = $request->name;
         $member->email = $request->email;
         $member->password = $request->password;
@@ -61,7 +61,7 @@ class adminController extends Controller
     public function destroy($id)
     {
 
-        $member = member::findorfail($id);
+        $member = Member::findorfail($id);
         if ($member) {
             $member->delete();
 
