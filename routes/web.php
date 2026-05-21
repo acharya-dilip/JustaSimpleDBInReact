@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\adminController;
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\members\memberController;
 use App\Http\Controllers\ProfileController;
@@ -40,9 +41,8 @@ Route::get('/meeting', function () {
     return Inertia::render('Meeting');
 })->middleware(['auth', 'verified'])->name('meeting');
 
-Route::get('/admin', function () {
-    return Inertia::render('admin/Admin');
-})->middleware(['auth', 'verified'])->name('admin');
+Route::get('/admin', [adminController::class, 'index',
+])->middleware(['auth', 'verified'])->name('admin.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

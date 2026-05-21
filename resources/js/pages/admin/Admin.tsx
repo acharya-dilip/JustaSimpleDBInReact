@@ -2,13 +2,19 @@ import { Head } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import TextInput from '@/Components/TextInput';
 import Container from '@/Components/Container';
+import Post from '@/Components/Post';
+import EnrollmentCard from '@/Components/EnrollmentCard';
 
-export default function Admin() {
+export default function Admin({members}:{members:any}) {
     return (
         <AuthenticatedLayout
             header={
                 <>
-                    <h1 className={"text-7xl font-semibold leading-tight text-white dark:text-gray-200"}>
+                    <h1
+                        className={
+                            'text-7xl font-semibold leading-tight text-white dark:text-gray-200'
+                        }
+                    >
                         Admin Panel
                     </h1>
                 </>
@@ -16,14 +22,13 @@ export default function Admin() {
         >
             <Head title="Admin" />
 
+            <Container className={"bg-gray-600 mt-4"}>
+                <h1 className={'text-3xl font-bold'}>Member Enrollment</h1>
 
-    <Container>
-
-        <h1 className={"text-3xl font-bold"}>Member Enrollment</h1>
-
-
-    </Container>
-
+                {members.map((member: any) => (
+                    <EnrollmentCard key={member.id} member={member} />
+                ))}
+            </Container>
         </AuthenticatedLayout>
     );
 }
