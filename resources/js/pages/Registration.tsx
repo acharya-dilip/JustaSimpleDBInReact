@@ -17,19 +17,13 @@ export default function Registration() {
         password_confirmation: '',
     });
 
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
 
-        // post(route('register'), {
-        //     onFinish: () => reset('password', 'password_confirmation'),
-        // });
-    };
 
     return (
         <GuestLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit} encType={'multipart/form-data'}>
+            <form method={"post"} action={route('members.store')} encType={'multipart/form-data'}>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
 
