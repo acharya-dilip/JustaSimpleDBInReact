@@ -6,7 +6,7 @@ import Container from '@/Components/Container';
 
 
 
-export default function Dashboard() {
+export default function Dashboard(posts:any) {
     return (
         <AuthenticatedLayout
             header={
@@ -15,7 +15,6 @@ export default function Dashboard() {
                         Dashboard
                     </h1>
                     <form method={'get'} action={route('dashboard.Create')}>
-
                         <PrimaryButton type={'submit'} className={'bg-white'}>
                             <p className={'text-black'}>CREATE POST</p>
                         </PrimaryButton>
@@ -25,7 +24,9 @@ export default function Dashboard() {
         >
             <Head title="Dashboard" />
 
-
+            {posts.posts.map((post: any) => (
+                <Post post={post} />
+            ))}
         </AuthenticatedLayout>
     );
 }
