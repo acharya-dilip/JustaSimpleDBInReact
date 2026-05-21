@@ -1,17 +1,12 @@
 import { Head } from '@inertiajs/react';
+import Post from '@/Components/Post';
 import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import Container from '@/Components/Container';
-import Post from '@/Components/Post';
 
 
 
-export default function Dashboard(posts:any) {
-
-
-
-
-
+export default function Dashboard() {
     return (
         <AuthenticatedLayout
             header={
@@ -20,6 +15,7 @@ export default function Dashboard(posts:any) {
                         Dashboard
                     </h1>
                     <form method={'get'} action={route('dashboard.Create')}>
+
                         <PrimaryButton type={'submit'} className={'bg-white'}>
                             <p className={'text-black'}>CREATE POST</p>
                         </PrimaryButton>
@@ -29,9 +25,7 @@ export default function Dashboard(posts:any) {
         >
             <Head title="Dashboard" />
 
-            {posts.map((post: { id: any }) => (
-                <Post key={post.id} post={post} />
-            ))}
+
         </AuthenticatedLayout>
     );
 }
