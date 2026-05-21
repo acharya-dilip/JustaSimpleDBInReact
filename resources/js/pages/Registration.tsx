@@ -29,7 +29,7 @@ export default function Registration() {
         <GuestLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} encType={'multipart/form-data'}>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
 
@@ -157,23 +157,22 @@ export default function Registration() {
                     />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
-                        Already registered?
-                    </Link>
-
+                <div className={'mt-4'}>
+                    <InputLabel
+                        htmlFor="image"
+                        value="Your Formal Photo"
+                    />
                     <input
                         type="file"
                         accept="image/*"
                         id="image"
                         name="image"
-                        className={'ml-1'}
+                        className={'mt-2'}
                         required
                     />
+                </div>
 
+                <div className="mt-4 flex items-center justify-end">
                     <PrimaryButton className="ms-4" disabled={processing}>
                         Register
                     </PrimaryButton>
