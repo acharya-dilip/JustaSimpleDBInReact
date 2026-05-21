@@ -7,12 +7,12 @@ export default function Meeting() {
         <AuthenticatedLayout
             header={
                 <>
-                    <h1 className="text-7xl font-semibold leading-tight text-gray-800">
+                    <h1 className="text-7xl font-semibold leading-tight text-white dark:text-gray-200">
                         Meeting
                     </h1>
                     <form>
-                        <PrimaryButton type={'submit'}>
-                            CREATE MEETING
+                        <PrimaryButton type={'submit'} className={"bg-white "}>
+                            <p className={"text-black"}>CREATE MEETING</p>
                         </PrimaryButton>
                     </form>
                 </>

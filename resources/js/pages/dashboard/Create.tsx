@@ -8,20 +8,20 @@ export default function Create(){
     return (
         <AuthenticatedLayout
             header={
-                <h1 className="text-7xl font-semibold leading-tight text-gray-800">
+                <h1 className="text-7xl font-semibold leading-tight text-white dark:text-gray-200">
                     Create Post
                 </h1>
             }
         >
             <Head title="Create Post" />
 
-            <Container className={"flex justify-center bg-gray-900/10"}>
-
-                    Hello
-
+            <Container className={''}>
+                <form>
+                    <h1 className="text-5xl font-semibold leading-tight text-white dark:text-gray-200">
+                        Description:
+                    </h1>
+                </form>
             </Container>
-
-
         </AuthenticatedLayout>
     );
 

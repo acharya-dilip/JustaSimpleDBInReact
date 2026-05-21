@@ -6,8 +6,8 @@ export default function Admin() {
         <AuthenticatedLayout
             header={
                 <>
-                    <h1 className="text-7xl font-semibold leading-tight text-gray-800">
-                        Admin Pannel
+                    <h1 className="text-7xl font-semibold leading-tight text-white dark:text-gray-200">
+                        Admin Panel
                     </h1>
                 </>
             }

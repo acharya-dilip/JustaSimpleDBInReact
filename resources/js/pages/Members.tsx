@@ -6,7 +6,7 @@ export default function Members() {
         <AuthenticatedLayout
             header={
                 <>
-                    <h1 className="text-7xl font-semibold leading-tight text-gray-800">
+                    <h1 className="text-7xl font-semibold leading-tight text-white dark:text-gray-200">
                         Members
                     </h1>
                 </>
