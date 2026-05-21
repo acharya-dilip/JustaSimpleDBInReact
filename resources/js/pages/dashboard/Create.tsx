@@ -6,6 +6,11 @@ import TextArea from '@/Components/TextArea';
 
 export default function Create(){
 
+    const { data, setData, post, processing } = useForm({
+        title: '',
+        description: '',
+        image: null as File | null,
+    });
 
 
     return (
@@ -26,15 +31,7 @@ export default function Create(){
                 >
 
                     {/*Equivalent of a csrf token*/}
-                    <input
-                        type="hidden"
-                        name="_token"
-                        value={
-                            document
-                                .querySelector('meta[name="csrf-token"]')
-                                ?.getAttribute('content') || ''
-                        }
-                    />
+
 
                     <h1 className="mb text-5xl font-semibold leading-tight text-white dark:text-gray-200">
                         Title:
@@ -69,9 +66,7 @@ export default function Create(){
                     <br />
 
                     <div className={'mt-4 flex justify-end'}>
-                        <PrimaryButton type={'submit'}>
-                            <p className={'text-xl text-black'}>SUBMIT</p>
-                        </PrimaryButton>
+                        <input type={'submit'} value={"SUBMIT"} className={"bg-white p-2 rounded-lg font-bold"} />
                     </div>
                 </form>
             </Container>
