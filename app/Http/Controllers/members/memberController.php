@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\members;
 
 use App\Http\Controllers\Controller;
-use App\Models\member;
+use App\Models\Member;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class memberController extends Controller
 {
@@ -20,7 +21,7 @@ class memberController extends Controller
             'techStack' => 'required',
         ]);
 
-        $member = new member;
+        $member = new Member;
 
         $member->name = $validate['name'];
         $member->email = $validate['email'];
@@ -33,14 +34,16 @@ class memberController extends Controller
 
         $member->save();
 
+        return redirect(route('registration'));
 
     }
 
     public function index()
     {
 
-        $members = member::select('id', 'name', 'email', 'role', 'techStack', 'number', 'dob', 'image')->oldest()->get();
+        $members = Member::select('id', 'name', 'email', 'role', 'techStack', 'number', 'dob', 'image')->oldest()->get();
 
+        return Inertia::render('members/Members', ['members' => $members], []);
 
     }
 }

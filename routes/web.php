@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\members\memberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -25,9 +26,8 @@ Route::get('/dashboard/create', function () {
 Route::post('/dashboard/create', [dashboardController::class, 'store',
 ])->name('dashboard.store');
 
-Route::get('/members', function () {
-    return Inertia::render('Members');
-})->middleware(['auth', 'verified'])->name('members');
+Route::get('/members', [memberController::class, 'index',
+])->middleware(['auth', 'verified'])->name('members.index');
 
 Route::get('/registration', function () {
     return Inertia::render('Registration');
