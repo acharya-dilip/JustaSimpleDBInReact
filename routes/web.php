@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [dashboardController::class, 'index',
-])->middleware(['auth', 'verified'])->name('dashboard');
+])->middleware(['auth', 'verified'])->name('dashboard.index');
 
 Route::get('/dashboard/create', function () {
     return Inertia::render('dashboard/Create');
