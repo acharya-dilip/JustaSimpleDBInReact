@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Member;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class adminController extends Controller
 {
@@ -14,8 +15,8 @@ class adminController extends Controller
 
         $members = Member::latest()->get();
 
-        //        return view('admin.app',compact('members'));
-
+        return Inertia::render('admin/Admin',
+            ['members' => $members]);
     }
 
     public function update(Request $request)
