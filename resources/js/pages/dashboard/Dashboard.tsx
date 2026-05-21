@@ -2,14 +2,14 @@ import { Head } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import Container from '@/Components/Container';
+import Post from '@/Components/Post';
 
 
 
 export default function Dashboard(posts:any) {
 
-    posts=posts.map(()=>{
 
-    });
+
 
 
     return (
@@ -29,10 +29,9 @@ export default function Dashboard(posts:any) {
         >
             <Head title="Dashboard" />
 
-            {posts}
-
-
-
+            {posts.map((post: { id: any }) => (
+                <Post key={post.id} post={post} />
+            ))}
         </AuthenticatedLayout>
     );
 }
