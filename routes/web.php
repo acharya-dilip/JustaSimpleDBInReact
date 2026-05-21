@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\members\memberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,13 @@ Route::get('/members', function () {
     return Inertia::render('Members');
 })->middleware(['auth', 'verified'])->name('members');
 
+Route::get('/registration',function(){
+    return Inertia::render('Registration');
+})->name('registration');
+
+
+
+
 Route::get('/meeting', function () {
     return Inertia::render('Meeting');
 })->middleware(['auth', 'verified'])->name('meeting');
@@ -36,6 +44,12 @@ Route::get('/meeting', function () {
 Route::get('/admin', function () {
     return Inertia::render('Admin');
 })->middleware(['auth', 'verified'])->name('admin');
+
+
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
