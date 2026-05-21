@@ -5,24 +5,36 @@ import Container from '@/Components/Container';
 
 
 
-export default function Dashboard() {
+export default function Dashboard(posts:any) {
+
+    posts=posts.map(()=>{
+
+    });
+
+
     return (
         <AuthenticatedLayout
             header={
                 <>
-                    <h1 className="font-semibold text-7xl text-white dark:text-gray-200 leading-tight">
+                    <h1 className="text-7xl font-semibold leading-tight text-white dark:text-gray-200">
                         Dashboard
-
                     </h1>
-                    <form method={"get"} action={route('dashboard.Create')}>
-                        <PrimaryButton type={"submit"} className={"bg-white"}>
-                            <p className={"text-black"}>CREATE POST</p>
+                    <form method={'get'} action={route('dashboard.Create')}>
+                        <PrimaryButton type={'submit'} className={'bg-white'}>
+                            <p className={'text-black'}>CREATE POST</p>
                         </PrimaryButton>
                     </form>
                 </>
-            }>
+            }
+        >
             <Head title="Dashboard" />
+
+            {posts}
+
+
 
         </AuthenticatedLayout>
     );
 }
+
+

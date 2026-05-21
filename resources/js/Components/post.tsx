@@ -1,0 +1,31 @@
+import Container from '@/Components/Container';
+
+export default function post(post:any){
+
+    const imagePath:string ="/storage/public/"+post.image;
+
+    return (
+        <Container className={"p-6"}>
+            <div
+                className={
+                    'mb-6 ms-2 flex w-full justify-start bg-gray-900 p-4'
+                }
+            >
+                <h1 className="text-7xl font-semibold leading-tight text-white dark:text-gray-200">
+                    {post.title}
+                </h1>
+            </div>
+            <h1 className="mb-4 text-4xl font-semibold leading-tight text-white dark:text-gray-200">
+                {post.description}
+            </h1>
+            <div className="mb-10 flex justify-center">
+                <img
+                    alt="justanimage"
+                    src={imagePath}
+                    className="max-h-9xl w-auto rounded"
+                />
+            </div>
+        </Container>
+    );
+
+}
