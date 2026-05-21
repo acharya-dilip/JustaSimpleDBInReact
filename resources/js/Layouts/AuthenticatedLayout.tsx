@@ -51,8 +51,8 @@ export default function Authenticated({
                                 </NavLink>
 
                                 <NavLink
-                                    href={route('admin')}
-                                    active={route().current('admin')}
+                                    href={route('admin.index')}
+                                    active={route().current('admin.index')}
                                 >
                                     Admin Panel
                                 </NavLink>
