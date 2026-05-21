@@ -38,7 +38,7 @@ class dashboardController extends Controller
 
         $post->save();
 
-        return redirect(route('dashboard'));
+        return redirect(route('dashboard.index'));
 
     }
 }

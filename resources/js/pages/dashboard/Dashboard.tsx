@@ -25,7 +25,9 @@ export default function Dashboard(posts:any) {
             <Head title="Dashboard" />
 
             {posts.posts.map((post: any) => (
-                <Post post={post} />
+                <Post
+                    key={post.id}
+                    post={post} />
             ))}
         </AuthenticatedLayout>
     );
