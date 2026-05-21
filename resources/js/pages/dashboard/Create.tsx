@@ -17,7 +17,7 @@ export default function Create(){
             <Head title="Create Post" />
 
             <Container className={'mt-10 p-8 pb-4 pt-4'}>
-                <form method={'post'}>
+                <form method={'post'} action={route('dashboard.store')} encType={'multipart/form-data'}>
 
                     <h1 className="mb text-5xl font-semibold leading-tight text-white dark:text-gray-200">
                        Title:
