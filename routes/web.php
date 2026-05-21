@@ -22,6 +22,11 @@ Route::get('/dashboard/create', function () {
     return Inertia::render('dashboard/Create');
 })->middleware(['auth', 'verified'])->name('dashboard.Create');
 
+
+
+
+
+
 Route::get('/members', function () {
     return Inertia::render('Members');
 })->middleware(['auth', 'verified'])->name('members');
