@@ -1,10 +1,12 @@
-import { Head } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
 import Container from '@/Components/Container';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextArea from '@/Components/TextArea';
 
 export default function Create(){
+
+
 
     return (
         <AuthenticatedLayout
@@ -17,23 +19,38 @@ export default function Create(){
             <Head title="Create Post" />
 
             <Container className={'mt-10 p-8 pb-4 pt-4'}>
-                <form method={'post'} action={route('dashboard.store')} encType={'multipart/form-data'}>
+                <form
+                    method={'post'}
+                    action={route('dashboard.store')}
+                    encType={'multipart/form-data'}
+                >
+
+                    {/*Equivalent of a csrf token*/}
+                    <input
+                        type="hidden"
+                        name="_token"
+                        value={
+                            document
+                                .querySelector('meta[name="csrf-token"]')
+                                ?.getAttribute('content') || ''
+                        }
+                    />
 
                     <h1 className="mb text-5xl font-semibold leading-tight text-white dark:text-gray-200">
-                       Title:
+                        Title:
                     </h1>
 
                     <TextArea
-                        className={'w-full mb-6'}
+                        className={'mb-6 w-full'}
                         name={'title'}
                     ></TextArea>
 
-                    <h1 className=" text-5xl font-semibold leading-tight text-white dark:text-gray-200">
+                    <h1 className="text-5xl font-semibold leading-tight text-white dark:text-gray-200">
                         Description:
                     </h1>
 
                     <TextArea
-                        className={'w-full h-52'}
+                        className={'h-52 w-full'}
                         name={'description'}
                     ></TextArea>
 
