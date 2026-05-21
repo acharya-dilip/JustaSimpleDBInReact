@@ -29,6 +29,9 @@ Route::post('/dashboard/create', [dashboardController::class, 'store',
 Route::get('/members', [memberController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('members.index');
 
+Route::post('/members', [memberController::class, 'store',
+])->name('members.store');
+
 Route::get('/registration', function () {
     return Inertia::render('Registration');
 })->name('registration');
@@ -38,7 +41,7 @@ Route::get('/meeting', function () {
 })->middleware(['auth', 'verified'])->name('meeting');
 
 Route::get('/admin', function () {
-    return Inertia::render('Admin');
+    return Inertia::render('admin/Admin');
 })->middleware(['auth', 'verified'])->name('admin');
 
 Route::middleware('auth')->group(function () {
