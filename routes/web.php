@@ -26,6 +26,10 @@ Route::get('/meeting', function () {
     return Inertia::render('Meeting');
 })->middleware(['auth', 'verified'])->name('meeting');
 
+Route::get('/admin', function () {
+    return Inertia::render('Admin');
+})->middleware(['auth', 'verified'])->name('admin');
+
 
 
 

@@ -51,10 +51,10 @@ export default function Authenticated({
                                 </NavLink>
 
                                 <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
+                                    href={route('admin')}
+                                    active={route().current('admin')}
                                 >
-                                    Admin Pannel
+                                    Admin Panel
                                 </NavLink>
                             </div>
                         </div>
