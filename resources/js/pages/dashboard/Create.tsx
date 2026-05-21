@@ -5,20 +5,24 @@ import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function Create(){
 
-    return(
+    return (
+        <AuthenticatedLayout
+            header={
+                <h1 className="text-7xl font-semibold leading-tight text-gray-800">
+                    Create Post
+                </h1>
+            }
+        >
+            <Head title="Create Post" />
 
-    <AuthenticatedLayout
-        header={
-            <h1 className="text-7xl font-semibold leading-tight text-gray-800">
-                Create Post
-            </h1>
-    }>
-        <Head title="Create Post" />
+            <Container className={"flex justify-center bg-gray-900/10"}>
+
+                    Hello
+
+            </Container>
 
 
-    </AuthenticatedLayout>
-
-
+        </AuthenticatedLayout>
     );
 
 }
