@@ -10,13 +10,13 @@ export default function Dashboard() {
         <AuthenticatedLayout
             header={
                 <>
-                    <h1 className="font-semibold text-7xl text-gray-800 dark:text-gray-200 leading-tight">
+                    <h1 className="font-semibold text-7xl text-white dark:text-gray-200 leading-tight">
                         Dashboard
 
                     </h1>
                     <form method={"get"} action={route('dashboard.Create')}>
-                        <PrimaryButton type={"submit"}>
-                                CREATE POST
+                        <PrimaryButton type={"submit"} className={"bg-white"}>
+                            <p className={"text-black"}>CREATE POST</p>
                         </PrimaryButton>
                     </form>
                 </>
