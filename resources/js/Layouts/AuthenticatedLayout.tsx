@@ -37,8 +37,8 @@ export default function Authenticated({
                                 </NavLink>
 
                                 <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
+                                    href={route('members')}
+                                    active={route().current('members')}
                                 >
                                     Members
                                 </NavLink>
@@ -56,8 +56,6 @@ export default function Authenticated({
                                 >
                                     Admin Pannel
                                 </NavLink>
-
-
                             </div>
                         </div>
 
