@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react';
 import Container from '@/Components/Container';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import PrimaryButton from '@/Components/PrimaryButton';
+import TextArea from '@/Components/TextArea';
 
 export default function Create(){
 
@@ -15,11 +16,39 @@ export default function Create(){
         >
             <Head title="Create Post" />
 
-            <Container className={''}>
+            <Container className={'p-8 pb-4 mt-10 pt-4'}>
                 <form>
-                    <h1 className="text-5xl font-semibold leading-tight text-white dark:text-gray-200">
+                    <h1 className="mb-2 text-5xl font-semibold leading-tight text-white dark:text-gray-200">
                         Description:
                     </h1>
+
+                    <TextArea
+                        className={'w-full'}
+                        name={'description'}
+                    ></TextArea>
+
+                    <h1 className="mt-4 text-5xl font-semibold leading-tight text-white mb-2 dark:text-gray-200">
+                        Image:
+                    </h1>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        id="image"
+                        name="image"
+                        className={"ml-1"}
+                        required
+                    />
+
+                    <br/>
+
+                    <div className={"flex justify-end mt-4"}>
+                        <PrimaryButton type={'submit'}>
+                            <p className={"text-xl text-black"}>SUBMIT</p>
+                        </PrimaryButton>
+                    </div>
+
+
+
                 </form>
             </Container>
         </AuthenticatedLayout>
