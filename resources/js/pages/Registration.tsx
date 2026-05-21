@@ -165,14 +165,14 @@ export default function Registration() {
                         Already registered?
                     </Link>
 
-                    <div className={'mt-4 flex justify-end'}>
-                        <input
-                            type={'submit'}
-                            value={'SUBMIT'}
-                            className={'rounded-lg bg-white p-2 font-bold'}
-                            required
-                        />
-                    </div>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        id="image"
+                        name="image"
+                        className={'ml-1'}
+                        required
+                    />
 
                     <PrimaryButton className="ms-4" disabled={processing}>
                         Register
