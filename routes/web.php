@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -14,18 +15,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('dashboard/Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [dashboardController::class, 'index',
+])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard/create', function () {
     return Inertia::render('dashboard/Create');
 })->middleware(['auth', 'verified'])->name('dashboard.Create');
-
-
-
-
-
 
 Route::get('/members', function () {
     return Inertia::render('Members');
