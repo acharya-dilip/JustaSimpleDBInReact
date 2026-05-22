@@ -1,8 +1,9 @@
 import { Head } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import Post from '@/Components/Post';
 
-export default function Meeting() {
+export default function Meeting({meetings}:{meetings:any}) {
     return (
         <AuthenticatedLayout
             header={
@@ -19,6 +20,10 @@ export default function Meeting() {
             }
         >
             <Head title="Meeting" />
+
+            {meetings.map((meeting: any) => (
+                <Post key={meeting.id} post={meeting} />
+            ))}
         </AuthenticatedLayout>
     );
 }

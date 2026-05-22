@@ -10,7 +10,7 @@ export default function Create() {
         <AuthenticatedLayout
             header={
                 <h1 className="text-7xl font-semibold leading-tight text-white dark:text-gray-200">
-                    Create Post
+                    Create Meeting
                 </h1>
             }
         >
@@ -36,7 +36,7 @@ export default function Create() {
                     </h1>
 
                     <TextInput
-                        className={'mb-6 w-full'}
+                        className={'mb-6 text-2xl font-bold w-full'}
                         name={'agenda'}
                     ></TextInput>
 

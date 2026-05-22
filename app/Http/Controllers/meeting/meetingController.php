@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\meeting;
 
 use App\Http\Controllers\Controller;
-use App\Models\meeting;
+use App\Models\Meeting;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,7 +12,7 @@ class meetingController extends Controller
     public function index()
     {
 
-        $meetings = meeting::latest()->get();
+        $meetings = Meeting::latest()->get();
 
         return Inertia::render('meeting/Meeting', [
             'meetings' => $meetings,
@@ -28,12 +28,12 @@ class meetingController extends Controller
             'time' => 'required',
             'location' => 'required',
             'date' => 'required',
-            'context' => 'required',
+            'description' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
         ]);
 
-        $meeting = new meeting;
+        $meeting = new Meeting;
 
         $meeting->agenda = $validate['agenda'];
         $meeting->time = $validate['time'];
@@ -41,7 +41,7 @@ class meetingController extends Controller
         $meeting->date = $validate['date'];
         $meeting->latitude = $validate['latitude'];
         $meeting->longitude = $validate['longitude'];
-        $meeting->context = $validate['context'];
+        $meeting->description = $validate['description'];
 
         $meeting->save();
 
