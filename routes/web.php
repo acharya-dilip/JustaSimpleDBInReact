@@ -41,6 +41,10 @@ Route::get('/meeting', function () {
     return Inertia::render('meeting/Meeting');
 })->middleware(['auth', 'verified'])->name('meeting');
 
+Rotue::get('/meeting/create', function () {
+    return Inertia::render('meeting/Create');
+})->middleware(['auth', 'verified'])->name('meeting.create');
+
 Route::get('/admin', [adminController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('admin.index');
 
