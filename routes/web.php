@@ -23,16 +23,16 @@ Route::get('/dashboard', [dashboardController::class, 'index',
 
 Route::get('/dashboard/create', function () {
     return Inertia::render('dashboard/Create');
-})->middleware(['auth', 'verified'])->name('dashboard.Create');
+})->middleware(['auth', 'role:Leader'])->name('dashboard.Create');
 
 Route::post('/dashboard/create', [dashboardController::class, 'store',
-])->name('dashboard.store');
+])->middleware(['auth', 'role:Leader'])->name('dashboard.store');
 
 Route::get('/members', [memberController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('members.index');
 
 Route::post('/members', [memberController::class, 'store',
-])->name('members.store');
+])->middleware(['auth', 'role:Leader'])->name('members.store');
 
 Route::get('/registration', function () {
     return Inertia::render('Registration');
@@ -43,16 +43,16 @@ Route::get('/meeting', [meetingController::class, 'index',
 
 Route::get('/meeting/create', function () {
     return Inertia::render('meeting/Create');
-})->middleware(['auth', 'verified'])->name('meeting.create');
+})->middleware(['auth', 'role:Leader'])->name('meeting.create');
 
 Route::post('/meeting/create', [meetingController::class, 'store',
-])->middleware(['auth', 'verified'])->name('meeting.store');
+])->middleware(['auth', 'role:Leader'])->name('meeting.store');
 
 Route::get('/admin', [adminController::class, 'index',
-])->middleware(['auth', 'verified'])->name('admin.index');
+])->middleware(['auth', 'role:Leader'])->name('admin.index');
 
 Route::post('/admin/update/{id}', [adminController::class, 'update',
-])->middleware(['auth', 'verified'])->name('admin.update');
+])->middleware(['auth', 'role:Leader'])->name('admin.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
