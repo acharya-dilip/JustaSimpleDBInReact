@@ -38,7 +38,7 @@ Route::get('/registration', function () {
 })->name('registration');
 
 Route::get('/meeting', function () {
-    return Inertia::render('Meeting');
+    return Inertia::render('meeting/Meeting');
 })->middleware(['auth', 'verified'])->name('meeting');
 
 Route::get('/admin', [adminController::class, 'index',
