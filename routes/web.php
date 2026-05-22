@@ -44,6 +44,9 @@ Route::get('/meeting', function () {
 Route::get('/admin', [adminController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('admin.index');
 
+Route::post('/admin/update', [adminController::class, 'update',
+])->middleware(['auth', 'role:Leader'])->name('admin.update');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
