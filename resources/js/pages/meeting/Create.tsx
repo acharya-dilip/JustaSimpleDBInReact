@@ -19,6 +19,15 @@ export default function Create() {
             <Container className={'mt-10 p-8 pb-4 pt-4'}>
                 <form method={'post'}>
                     {/*Equivalent of a csrf token*/}
+                    <input
+                        type="hidden"
+                        name="_token"
+                        value={
+                            document
+                                .querySelector('meta[name="csrf-token"]')
+                                ?.getAttribute('content') || ''
+                        }
+                    />
 
                     <h1 className="mb text-5xl font-semibold leading-tight text-white dark:text-gray-200">
                         Agenda:
