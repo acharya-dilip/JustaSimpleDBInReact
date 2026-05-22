@@ -18,7 +18,7 @@ export default function Members({members}:{members:any}) {
 
             <div
                 className={
-                    'grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:grid-cols-4'
+                    'm-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 '
                 }
             >
                 {members.map((member: any) => (

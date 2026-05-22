@@ -166,6 +166,24 @@ export default function Authenticated({
                         >
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('members.index')}
+                            active={route().current('members.index')}
+                        >
+                            Members
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('meeting.index')}
+                            active={route().current('meeting.index')}
+                        >
+                            Meeting
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('admin.index')}
+                            active={route().current('admin.index')}
+                        >
+                            Admin Panel
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="border-t border-gray-200 pb-1 pt-4">

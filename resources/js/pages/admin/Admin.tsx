@@ -22,7 +22,7 @@ export default function Admin({members}:{members:any}) {
         >
             <Head title="Admin" />
 
-            <Container className={"bg-gray-600 mt-4"}>
+            <Container className={"bg-gray-800 mt-4"}>
                 <h1 className={'text-3xl font-bold flex whtie   text-5xl text-white justify-center'}>Member Enrollment</h1>
 
                 {members.map((member: any) => (
