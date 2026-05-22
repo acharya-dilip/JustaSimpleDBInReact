@@ -83,7 +83,7 @@ export default function Registration() {
 
                     <TextInput
                         id="dob"
-                        type="number"
+                        type="date"
                         name="dob"
                         value={data.dob}
                         className="mt-1 block w-full"
