@@ -8,20 +8,16 @@ use Illuminate\Http\Request;
 
 class meetingController extends Controller
 {
-
-
-    function index()
+    public function index()
     {
 
         $meetings = meeting::latest()->get();
 
-
-
-        return view('meeting.app', compact('meetings'));
+//        return view('meeting.app', compact('meetings'));
     }
 
-
-    function store(Request $request){
+    public function store(Request $request)
+    {
 
         $validate = $request->validate([
             'agenda' => 'required',
@@ -33,7 +29,7 @@ class meetingController extends Controller
             'longitude' => 'required',
         ]);
 
-        $meeting = new meeting();
+        $meeting = new meeting;
 
         $meeting->agenda = $validate['agenda'];
         $meeting->time = $validate['time'];
@@ -45,7 +41,7 @@ class meetingController extends Controller
 
         $meeting->save();
 
-        return redirect(route('meeting.index'));
+//        return redirect(route('meeting.index'));
 
     }
 }
