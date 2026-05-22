@@ -12,7 +12,7 @@ export default function EnrollmentCard({ member }: { member: any }) {
 
 
     return (
-        <form method="post" action={route('admin.update', member.id)}>
+        <form method="post" action={route('admin.update')}>
             <input
                 type="hidden"
                 name="_token"
