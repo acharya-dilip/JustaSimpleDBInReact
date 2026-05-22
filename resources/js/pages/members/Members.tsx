@@ -22,7 +22,7 @@ export default function Members({members}:{members:any}) {
                 }
             >
                 {members.map((member: any) => (
-                    <MemberCard key={member.id} post={member} />
+                    <MemberCard key={member.id} member={member} />
                 ))}
             </div>
         </AuthenticatedLayout>
