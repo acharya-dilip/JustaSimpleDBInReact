@@ -56,10 +56,10 @@ export default function EnrollmentCard({ member }: { member: any }) {
                     <TextInput value={member.role} name="role" />
 
                     <label className="mb-1 block text-white">Number</label>
-                    <TextInput value={member.number} name="role" />
+                    <TextInput value={member.number} name="number" />
 
                     <label className="mb-1 block text-white">DOB</label>
-                    <TextInput value={member.dob} name="role" />
+                    <TextInput value={member.dob} name="dob" />
                 </div>
 
                 <div>
