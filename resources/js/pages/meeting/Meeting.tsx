@@ -1,4 +1,5 @@
 import { Head } from '@inertiajs/react';
+import MeetingCard from '@/Components/MeetingCard';
 import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import Post from '@/Components/Post';
@@ -22,7 +23,7 @@ export default function Meeting({meetings}:{meetings:any}) {
             <Head title="Meeting" />
 
             {meetings.map((meeting: any) => (
-                <Post key={meeting.id} post={meeting} />
+                <MeetingCard  key={meeting.id} meeting={meeting} />
             ))}
         </AuthenticatedLayout>
     );

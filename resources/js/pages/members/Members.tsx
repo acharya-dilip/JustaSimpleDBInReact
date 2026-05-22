@@ -1,6 +1,7 @@
 import { Head } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import Post from '@/Components/Post';
+import MemberCard from '@/Components/MemberCard';
 
 export default function Members({members}:{members:any}) {
     return (
@@ -21,7 +22,7 @@ export default function Members({members}:{members:any}) {
                 }
             >
                 {members.map((member: any) => (
-                    <Post key={member.id} post={member} />
+                    <MemberCard key={member.id} post={member} />
                 ))}
             </div>
         </AuthenticatedLayout>
