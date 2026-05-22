@@ -44,7 +44,7 @@ Route::get('/meeting', function () {
 Route::get('/admin', [adminController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('admin.index');
 
-Route::post('/admin/update', [adminController::class, 'update',
+Route::post('/admin/update/{id}', [adminController::class, 'update',
 ])->middleware(['auth', 'verified'])->name('admin.update');
 
 Route::middleware('auth')->group(function () {

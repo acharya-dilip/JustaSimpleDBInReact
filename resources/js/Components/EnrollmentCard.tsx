@@ -1,6 +1,7 @@
 import TextInput from '@/Components/TextInput';
 import Container from '@/Components/Container';
 import { useState } from 'react';
+import PrimaryButton from '@/Components/PrimaryButton';
 
 export default function EnrollmentCard({ member }: { member: any }) {
 
@@ -12,7 +13,7 @@ export default function EnrollmentCard({ member }: { member: any }) {
 
 
     return (
-        <form method="post" action={route('admin.update')}>
+        <form method="post" action={route('admin.update', member.id)}>
             <input
                 type="hidden"
                 name="_token"
@@ -24,7 +25,7 @@ export default function EnrollmentCard({ member }: { member: any }) {
             />
             <div
                 className={
-                    'm-4 grid grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4 grid-cols-5'
+                    'm-4 grid grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4'
                 }
             >
                 <div>
@@ -56,7 +57,7 @@ export default function EnrollmentCard({ member }: { member: any }) {
                     <TextInput defaultValue={member.email} name="email" />
 
                     <label className="mb-1 block text-white">Password</label>
-                    <TextInput defaultValue={member.password} name="name" />
+                    <TextInput defaultValue={member.password} name="password" />
                 </div>
 
                 <div>
@@ -74,7 +75,7 @@ export default function EnrollmentCard({ member }: { member: any }) {
                 <div>
                     {/*For ID Stack Submission    */}
                     <label className="mb-1 block text-white">ID</label>
-                    <TextInput defaultValue={member.id} readOnly />
+                    <TextInput defaultValue={member.id} name="id" readOnly />
 
                     <label className="mb-1 block text-white">Tech Stack</label>
                     <TextInput
@@ -83,18 +84,32 @@ export default function EnrollmentCard({ member }: { member: any }) {
                     />
 
                     <label className="mb-1 block text-white">Submission</label>
-                    <TextInput defaultValue={member.created_at} readOnly />
-                </div>
-                <div>
-                    {/*For Update Button    */}
-                    <div className={'flex justify-center'}>
-                        <input
+                    <TextInput
+                        defaultValue={member.created_at}
+                        name="created_at"
+                        readOnly
+                    />
+
+                        <div className={"flex justify-start gap-4 mx-a"}>
+                            <input
                             type={'submit'}
+                            value={'REMOVE'}
                             className={
-                                'rounded-lg bg-green-500 p-6 text-2xl font-bold text-white'
+                                'h-auto  w-24 mt-2 align-baseline rounded-lg bg-red-500 p-2 font-bold text-white'
                             }
                         />
-                    </div>
+                                <input
+                                type={'submit'}
+                                value={'UPDATE'}
+                                className={
+                                    'h-auto w-24 mt-2 align-baseline rounded-lg bg-green-600 p-2 font-bold text-white'
+                                } />
+
+                        </div>
+
+
+
+
                 </div>
             </div>
         </form>

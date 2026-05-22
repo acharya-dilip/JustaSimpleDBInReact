@@ -19,10 +19,8 @@ class adminController extends Controller
             ['members' => $members]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-
-        $id = $request->id;
 
         $member = Member::find($id);
         $member->name = $request->name;
@@ -55,7 +53,7 @@ class adminController extends Controller
             $user->save();
         }
 
-        //        return redirect(route('admin.index'));
+        return redirect()->route('admin.index');
 
     }
 
