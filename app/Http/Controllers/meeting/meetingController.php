@@ -5,6 +5,7 @@ namespace App\Http\Controllers\meeting;
 use App\Http\Controllers\Controller;
 use App\Models\meeting;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class meetingController extends Controller
 {
@@ -13,7 +14,10 @@ class meetingController extends Controller
 
         $meetings = meeting::latest()->get();
 
-//        return view('meeting.app', compact('meetings'));
+        return Inertia::render('meeting/Meeting', [
+            'meetings' => $meetings,
+        ]);
+
     }
 
     public function store(Request $request)
@@ -41,7 +45,7 @@ class meetingController extends Controller
 
         $meeting->save();
 
-//        return redirect(route('meeting.index'));
+        return redirect(route('meeting.index'));
 
     }
 }
