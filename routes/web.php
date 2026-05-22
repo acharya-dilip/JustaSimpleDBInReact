@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\adminController;
 use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\meeting\meetingController;
 use App\Http\Controllers\members\memberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -44,6 +45,9 @@ Route::get('/meeting', function () {
 Route::get('/meeting/create', function () {
     return Inertia::render('meeting/Create');
 })->middleware(['auth', 'verified'])->name('meeting.create');
+
+Route::post('/meeting/create', [meetingController::class, 'store',
+    ])->middleware(['auth', 'verified'])->name('meeting.store');
 
 Route::get('/admin', [adminController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('admin.index');
