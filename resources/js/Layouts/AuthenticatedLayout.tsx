@@ -6,6 +6,7 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import type { PageProps } from '@/types';
+import Guard from '@/Components/Guard';
 
 export default function Authenticated({
     header,
@@ -50,12 +51,12 @@ export default function Authenticated({
                                     Meeting
                                 </NavLink>
 
-                                <NavLink
+                                <Guard><NavLink
                                     href={route('admin.index')}
                                     active={route().current('admin.index')}
                                 >
                                     Admin Panel
-                                </NavLink>
+                                </NavLink></Guard>
                             </div>
                         </div>
 
@@ -178,12 +179,12 @@ export default function Authenticated({
                         >
                             Meeting
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink
+                        <Guard><ResponsiveNavLink
                             href={route('admin.index')}
                             active={route().current('admin.index')}
                         >
                             Admin Panel
-                        </ResponsiveNavLink>
+                        </ResponsiveNavLink></Guard>
                     </div>
 
                     <div className="border-t border-gray-200 pb-1 pt-4">
