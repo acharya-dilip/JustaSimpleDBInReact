@@ -38,16 +38,15 @@ Route::get('/registration', function () {
     return Inertia::render('Registration');
 })->name('registration');
 
-Route::get('/meeting', function () {
-    return Inertia::render('meeting/Meeting');
-})->middleware(['auth', 'verified'])->name('meeting');
+Route::get('/meeting', [meetingController::class, 'index',
+])->middleware(['auth', 'verified'])->name('meeting.index');
 
 Route::get('/meeting/create', function () {
     return Inertia::render('meeting/Create');
 })->middleware(['auth', 'verified'])->name('meeting.create');
 
 Route::post('/meeting/create', [meetingController::class, 'store',
-    ])->middleware(['auth', 'verified'])->name('meeting.store');
+])->middleware(['auth', 'verified'])->name('meeting.store');
 
 Route::get('/admin', [adminController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('admin.index');

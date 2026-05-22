@@ -17,7 +17,9 @@ export default function Create() {
             <Head title="Create Post" />
 
             <Container className={'mt-10 p-8 pb-4 pt-4'}>
-                <form method={'post'}>
+                <form method={'post'} action={route('meeting.store')}>
+
+
                     {/*Equivalent of a csrf token*/}
                     <input
                         type="hidden"
