@@ -32,7 +32,7 @@ Route::get('/members', [memberController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('members.index');
 
 Route::post('/members', [memberController::class, 'store',
-])->middleware(['auth', 'role:Leader'])->name('members.store');
+])->name('members.store');
 
 Route::get('/registration', function () {
     return Inertia::render('Registration');
