@@ -18,6 +18,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/', function () {
+    return Inertia::render('Auth/Login');
+});
+
 Route::get('/dashboard', [dashboardController::class, 'index',
 ])->middleware(['auth', 'verified'])->name('dashboard.index');
 
