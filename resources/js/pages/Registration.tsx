@@ -15,15 +15,19 @@ export default function Registration() {
         techStack:'',
         password: '',
         password_confirmation: '',
+        image: null,
     });
 
-
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+        post(route('members.store'));
+    };
 
     return (
         <GuestLayout>
             <Head title="Register" />
 
-            <form method={"post"} action={route('members.store')} encType={'multipart/form-data'}>
+            <form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
 
@@ -163,6 +167,7 @@ export default function Registration() {
                         name="image"
                         className={'mt-2'}
                         required
+                        onChange={(e) => setData('image', e.target.files[0])}
                     />
                 </div>
 
