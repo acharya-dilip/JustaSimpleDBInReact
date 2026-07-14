@@ -7,7 +7,16 @@ import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
 
 export default function Registration() {
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm<{
+        name: string;
+        email: string;
+        number: string;
+        dob: string;
+        techStack: string;
+        password: string;
+        password_confirmation: string;
+        image: File | null;
+    }>({
         name: '',
         email: '',
         number: '',
@@ -167,7 +176,11 @@ export default function Registration() {
                         name="image"
                         className={'mt-2'}
                         required
-                        onChange={(e) => setData('image', e.target.files[0])}
+                        onChange={(e) => {
+                            if (e.target.files) {
+                                setData('image', e.target.files[0] || null);
+                            }
+                        }}
                     />
                 </div>
 
